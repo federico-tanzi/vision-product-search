@@ -82,8 +82,8 @@ if __name__ == '__main__':
     product_category = 'apparel'
 
     filter1 = None
-    results = get_similar_products_file(project_id, location, product_set_id, product_category, 'test.jpeg', filter1,
-                                        10)
+    results = get_similar_products_file(project_id, location, product_set_id, product_category, 'test.jpeg',
+                                        filter1, 10)
     print_results(results, 'test.jpeg')
 
     filter2 = 'color = Black AND gender = Women'
