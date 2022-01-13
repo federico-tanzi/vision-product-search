@@ -54,8 +54,7 @@ def get_similar_products_file(
     )
 
     index_time = response.product_search_results.index_time
-    print('Product set index time: ')
-    print(index_time)
+    print('Product set index time: {}'.format(index_time))
 
     return response.product_search_results.results
 
@@ -82,9 +81,9 @@ if __name__ == '__main__':
     product_category = 'apparel'
 
     filter1 = None
-    results = get_similar_products_file(project_id, location, product_set_id, product_category, 'test.jpeg',
+    results1 = get_similar_products_file(project_id, location, product_set_id, product_category, 'test.jpeg',
                                         filter1, 10)
-    print_results(results, 'test.jpeg')
+    print_results(results1, 'test.jpeg')
 
     filter2 = 'color = Black AND gender = Women'
     results2 = get_similar_products_file(project_id, location, product_set_id, product_category, 'test-2.jpeg',
