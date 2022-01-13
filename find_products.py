@@ -57,9 +57,11 @@ def get_similar_products_file(
     print('Product set index time: ')
     print(index_time)
 
-    results = response.product_search_results.results
+    return response.product_search_results.results
 
-    print('Search results:')
+
+def print_results(results, file_path):
+    print('Search results for {}:'.format(file_path))
     for result in results:
         product = result.product
 
@@ -78,4 +80,13 @@ if __name__ == '__main__':
     location = "us-east1"
     product_set_id = 'BENI_CLOTH'
     product_category = 'apparel'
-    get_similar_products_file(project_id, location, product_set_id, product_category, 'test.jpeg', None, None)
+
+    filter1 = None
+    results = get_similar_products_file(project_id, location, product_set_id, product_category, 'test.jpeg', filter1,
+                                        10)
+    print_results(results, 'test.jpeg')
+
+    filter2 = 'color = Black AND gender = Women'
+    results2 = get_similar_products_file(project_id, location, product_set_id, product_category, 'test-2.jpeg',
+                                         filter2, 10)
+    print_results(results2, 'test-2.jpeg')

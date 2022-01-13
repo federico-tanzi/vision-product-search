@@ -74,8 +74,8 @@ def create_product_set(
 
 
 def create_product(
-        project_id, location, product_id, product_display_name,
-        product_category):
+        project_id, location, product_id, product_display_name, product_description,
+        product_category, product_labels):
     """Create one product.
     Args:
         project_id: Id of the project.
@@ -93,7 +93,9 @@ def create_product(
     # Set product display name and product category.
     product = vision.Product(
         display_name=product_display_name,
-        product_category=product_category)
+        description=product_description,
+        product_category=product_category,
+        product_labels=product_labels)
 
     # The response is the product with the `name` field populated.
     response = client.create_product(
@@ -177,19 +179,26 @@ if __name__ == '__main__':
     with open('product_catalog_productbase.csv', 'r') as read_obj:
         csv_reader = reader(read_obj)
         header = next(csv_reader)
-        # Check file as empty
         if header is not None:
-            # Iterate over each row after the header in the csv
             for row in csv_reader:
-                id = row[0]
                 beni_product_id = row[1]
+                product_id = row[2]
                 img_url = row[4]
                 brand = row[7]
                 product_title = row[8]
                 product_description = row[9]
+                gender = row[11]
+                color = row[12]
                 product_category = row[20]
+                product_labels = [
+                    vision.Product.KeyValue(key='brand', value=brand),
+                    vision.Product.KeyValue(key='gender', value=gender),
+                    vision.Product.KeyValue(key='color', value=color),
+                    vision.Product.KeyValue(key='category', value=product_category)
+                ]
                 try:
-                    create_product(project_id, location, beni_product_id, product_title, 'apparel')
+                    create_product(project_id, location, beni_product_id, product_title, product_description, 'apparel',
+                                   product_labels)
                 except Exception as e:
                     print(e)
                 try:
@@ -199,6 +208,6 @@ if __name__ == '__main__':
                 try:
                     gcs_uri = upload_image(bucket_name, img_url)
                     if gcs_uri is not None:
-                        create_reference_image(project_id, location, beni_product_id, id, gcs_uri)
+                        create_reference_image(project_id, location, beni_product_id, product_id, gcs_uri)
                 except Exception as e:
                     print(e)
