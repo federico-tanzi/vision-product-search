@@ -60,7 +60,7 @@ def get_similar_products_file(
 
 
 def print_results(results, file_path):
-    print('Search results for {}:'.format(file_path))
+    print('Search results for: {}'.format(file_path))
     for result in results:
         product = result.product
 
