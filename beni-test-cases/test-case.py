@@ -53,39 +53,46 @@ def get_similar_products_file(
         max_results=max_results
     )
 
-    index_time = response.product_search_results.index_time
+    return response.product_search_results
+
+
+def print_results(product_search_results, image_url):
+    print('Search results for {}'.format(image_url))
+    index_time = product_search_results.index_time
     print('Product set index time: {}'.format(index_time))
-
-    return response.product_search_results.results
-
-
-def print_results(results, file_path):
-    print('Search results for: {}'.format(file_path))
+    results = product_search_results.results
+    print('Results len: {}'.format(len(results)))
     for result in results:
-        product = result.product
-
         print('Score(Confidence): {}'.format(result.score))
         print('Image name: {}'.format(result.image))
 
+        product = result.product
         print('Product name: {}'.format(product.name))
-        print('Product display name: {}'.format(
-            product.display_name))
-        print('Product description: {}\n'.format(product.description))
-        print('Product labels: {}\n'.format(product.product_labels))
+        print('Product display name: {}'.format(product.display_name))
+        print('Product description: {}'.format(product.description))
+        print('Product labels: {}'.format(product.product_labels))
 
 
 if __name__ == '__main__':
     project_id = "beni-ai-engine"
     location = "us-east1"
-    product_set_id = 'BENI_CLOTH'
+    product_set_id = 'BENI_TEST_CASES'
     product_category = 'apparel'
 
-    filter1 = None
-    results1 = get_similar_products_file(project_id, location, product_set_id, product_category, 'test.jpeg',
-                                         filter1, 4)
-    print_results(results1, 'test.jpeg')
+    print('---------------------Test Case 1')
 
-    filter2 = 'color = Black AND gender = Women'
-    results2 = get_similar_products_file(project_id, location, product_set_id, product_category, 'test-2.jpeg',
-                                         filter2, 4)
-    print_results(results2, 'test-2.jpeg')
+    case_1 = get_similar_products_file(project_id, location, product_set_id, product_category,
+                                       'hollister_black_shirt_1.jpg', None, None)
+    print_results(case_1, 'hollister_black_shirt_1.jpg')
+
+    print('---------------------Test Case 2')
+
+    case_2 = get_similar_products_file(project_id, location, product_set_id, product_category,
+                                       'hollister_black_shirt_1.jpg', 'color = black', None)
+    print_results(case_2, 'hollister_black_shirt_1.jpg')
+
+    print('---------------------Test Case 3')
+
+    case_3 = get_similar_products_file(project_id, location, product_set_id, product_category,
+                                       'hollister_black_shirt_1.jpg', 'color = white', None)
+    print_results(case_3, 'hollister_black_shirt_1.jpg')

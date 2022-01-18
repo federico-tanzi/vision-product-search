@@ -1,0 +1,12 @@
+"id","beni_product_id","image_url","title","description","gender","brand","color"
+317c278c-b905-482a-8e12-d144c6ebfc20,TEST-CASE-201,hollister_black_shirt_1.jpg,hollister_black_shirt_1,hollister_black_shirt_1,male,Hollister,black
+317c278c-b905-482a-8e12-d144c6ebfc21,TEST-CASE-202,hollister_black_shirt_2.jpg,hollister_black_shirt_2,hollister_black_shirt_2,male,Hollister,black
+317c278c-b905-482a-8e12-d144c6ebfc22,TEST-CASE-203,hollister_black_shirt_3.jpg,hollister_black_shirt_3,hollister_black_shirt_3,male,Hollister,black
+317c278c-b905-482a-8e12-d144c6ebfc23,TEST-CASE-204,hollister_black_shirt_4.jpg,hollister_black_shirt_4,hollister_black_shirt_4,male,Hollister,black
+317c278c-b905-482a-8e12-d144c6ebfc24,TEST-CASE-205,hollister_black_shirt_4_2.jpg,hollister_black_shirt_4_2,hollister_black_shirt_4_2,male,Hollister,black
+317c278c-b905-482a-8e12-d144c6ebfc25,TEST-CASE-206,hollister_red_shirt.jpg,hollister_red_shirt,hollister_red_shirt,male,Hollister,red
+317c278c-b905-482a-8e12-d144c6ebfc26,TEST-CASE-207,hollister_white_shirt.jpg,hollister_white_shirt,hollister_white_shirt,male,Hollister,white
+317c278c-b905-482a-8e12-d144c6ebfc27,TEST-CASE-209,zara_blue_shirt.jpg,zara_blue_shirt,zara_blue_shirt,male,Zara,blue
+317c278c-b905-482a-8e12-d144c6ebfc28,TEST-CASE-210,zara_green_shirt.jpg,zara_green_shirt,zara_green_shirt,male,Zara,green
+317c278c-b905-482a-8e12-d144c6ebfc29,TEST-CASE-211,zara_orange_shirt.jpg,zara_orange_shirt,zara_orange_shirt,male,Zara,orange
+317c278c-b905-482a-8e12-d144c6ebfc30,TEST-CASE-212,zara_yellow_shirt.jpg,zara_yellow_shirt,zara_yellow_shirt,male,Zara,yellow
