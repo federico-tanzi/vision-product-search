@@ -77,7 +77,7 @@ def case_1(project_id, location, product_set_id, product_category):
     print('---------------------Test Case 1')
     start_time = datetime.now()
     result = get_similar_products_file(project_id, location, product_set_id, product_category,
-                                       '../color/hollister_black_shirt_1.jpg', None, None)
+                                       'hollister_black_shirt_1.jpg', None, None)
     end_time = datetime.now()
     diff_time = end_time - start_time
     print('Process Time: {}'.format(diff_time))
@@ -85,11 +85,35 @@ def case_1(project_id, location, product_set_id, product_category):
     print_results(result)
 
 
+def case_1_b(project_id, location, product_set_id, product_category):
+    print('---------------------Test Case 1 B')
+    start_time = datetime.now()
+    result = get_similar_products_file(project_id, location, product_set_id, product_category,
+                                       'zara_black_shirt_2.jpg', None, None)
+    end_time = datetime.now()
+    diff_time = end_time - start_time
+    print('Process Time: {}'.format(diff_time))
+    print('Search results for image: {}'.format('zara_black_shirt_2.jpg'))
+    print_results(result)
+
+
+def case_1_c(project_id, location, product_set_id, product_category):
+    print('---------------------Test Case 1 C')
+    start_time = datetime.now()
+    result = get_similar_products_file(project_id, location, product_set_id, product_category,
+                                       'zara_orange_shirt_2.jpg', None, None)
+    end_time = datetime.now()
+    diff_time = end_time - start_time
+    print('Process Time: {}'.format(diff_time))
+    print('Search results for image: {}'.format('zara_orange_shirt_2.jpg'))
+    print_results(result)
+
+
 def case_2(project_id, location, product_set_id, product_category):
     print('---------------------Test Case 2')
     start_time = datetime.now()
     result = get_similar_products_file(project_id, location, product_set_id, product_category,
-                                       '../color/hollister_black_shirt_1.jpg', 'color = black', None)
+                                       'hollister_black_shirt_1.jpg', 'color = black', None)
     end_time = datetime.now()
     diff_time = end_time - start_time
     print('Process Time: {}'.format(diff_time))
@@ -97,15 +121,75 @@ def case_2(project_id, location, product_set_id, product_category):
     print_results(result)
 
 
+def case_2_b(project_id, location, product_set_id, product_category):
+    print('---------------------Test Case 2 B')
+    start_time = datetime.now()
+    result = get_similar_products_file(project_id, location, product_set_id, product_category,
+                                       'zara_black_shirt_2.jpg', 'color = black', None)
+    end_time = datetime.now()
+    diff_time = end_time - start_time
+    print('Process Time: {}'.format(diff_time))
+    print('Search results for image: {}, filter: {}'.format('zara_black_shirt_2.jpg', 'color = black'))
+    print_results(result)
+
+
+def case_2_c(project_id, location, product_set_id, product_category):
+    print('---------------------Test Case 2 C')
+    start_time = datetime.now()
+    result = get_similar_products_file(project_id, location, product_set_id, product_category,
+                                       'zara_orange_shirt_2.jpg', 'color = orange', None)
+    end_time = datetime.now()
+    diff_time = end_time - start_time
+    print('Process Time: {}'.format(diff_time))
+    print('Search results for image: {}, filter: {}'.format('zara_orange_shirt_2.jpg', 'color = orange'))
+    print_results(result)
+
+
 def case_3(project_id, location, product_set_id, product_category):
     print('---------------------Test Case 3')
     start_time = datetime.now()
     result = get_similar_products_file(project_id, location, product_set_id, product_category,
-                                       '../color/hollister_black_shirt_1.jpg', 'color = white', None)
+                                       'hollister_black_shirt_1.jpg', 'color = white', None)
     end_time = datetime.now()
     diff_time = end_time - start_time
     print('Process Time: {}'.format(diff_time))
     print('Search results for image: {}, filter: {}'.format('hollister_black_shirt_1.jpg', 'color = white'))
+    print_results(result)
+
+
+def case_3_b(project_id, location, product_set_id, product_category):
+    print('---------------------Test Case 3 B')
+    start_time = datetime.now()
+    result = get_similar_products_file(project_id, location, product_set_id, product_category,
+                                       'zara_black_shirt_2.jpg', 'color = white', None)
+    end_time = datetime.now()
+    diff_time = end_time - start_time
+    print('Process Time: {}'.format(diff_time))
+    print('Search results for image: {}, filter: {}'.format('zara_black_shirt_2.jpg', 'color = white'))
+    print_results(result)
+
+
+def case_3_c(project_id, location, product_set_id, product_category):
+    print('---------------------Test Case 3 C')
+    start_time = datetime.now()
+    result = get_similar_products_file(project_id, location, product_set_id, product_category,
+                                       'zara_orange_shirt_2.jpg', 'color = white', None)
+    end_time = datetime.now()
+    diff_time = end_time - start_time
+    print('Process Time: {}'.format(diff_time))
+    print('Search results for image: {}, filter: {}'.format('zara_orange_shirt_2.jpg', 'color = white'))
+    print_results(result)
+
+
+def case_4(project_id, location, product_set_id, product_category):
+    print('---------------------Test Case 4')
+    start_time = datetime.now()
+    result = get_similar_products_file(project_id, location, product_set_id, product_category,
+                                       'zara_black_shirt_1_worn.jpg', None, None)
+    end_time = datetime.now()
+    diff_time = end_time - start_time
+    print('Process Time: {}'.format(diff_time))
+    print('Search results for image: {}'.format('zara_black_shirt_1_worn.jpg'))
     print_results(result)
 
 
@@ -116,5 +200,12 @@ if __name__ == '__main__':
     product_category = 'apparel'
 
     case_1(project_id, location, product_set_id, product_category)
+    case_1_b(project_id, location, product_set_id, product_category)
+    case_1_c(project_id, location, product_set_id, product_category)
     case_2(project_id, location, product_set_id, product_category)
+    case_2_b(project_id, location, product_set_id, product_category)
+    case_2_c(project_id, location, product_set_id, product_category)
     case_3(project_id, location, product_set_id, product_category)
+    case_3_b(project_id, location, product_set_id, product_category)
+    case_3_c(project_id, location, product_set_id, product_category)
+    case_4(project_id, location, product_set_id, product_category)
