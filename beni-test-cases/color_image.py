@@ -13,7 +13,6 @@ import pandas as pd
 
 
 def convert_rgb_to_names(rgb_tuple, css_db):
-    # a dictionary of all the hex and their respective names in css3
     names = []
     rgb_values = []
     for color_hex, color_name in css_db.items():
@@ -98,3 +97,5 @@ if __name__ == '__main__':
     get_color_image('zara_orange_shirt.jpg')
     get_color_image('zara_yellow_shirt.jpg')
     get_color_image('zara_blue_shirt.jpg')
+    get_color_image('2-colors.jpeg')
+
