@@ -1,4 +1,5 @@
 from google.cloud import vision
+from datetime import datetime
 
 
 def get_similar_products_file(
@@ -56,8 +57,7 @@ def get_similar_products_file(
     return response.product_search_results
 
 
-def print_results(product_search_results, image_url):
-    print('Search results for {}'.format(image_url))
+def print_results(product_search_results):
     index_time = product_search_results.index_time
     print('Product set index time: {}'.format(index_time))
     results = product_search_results.results
@@ -73,26 +73,48 @@ def print_results(product_search_results, image_url):
         print('Product labels: {}'.format(product.product_labels))
 
 
+def case_1(project_id, location, product_set_id, product_category):
+    print('---------------------Test Case 1')
+    start_time = datetime.now()
+    result = get_similar_products_file(project_id, location, product_set_id, product_category,
+                                       '../color/hollister_black_shirt_1.jpg', None, None)
+    end_time = datetime.now()
+    diff_time = end_time - start_time
+    print('Process Time: {}'.format(diff_time))
+    print('Search results for image: {}'.format('hollister_black_shirt_1.jpg'))
+    print_results(result)
+
+
+def case_2(project_id, location, product_set_id, product_category):
+    print('---------------------Test Case 2')
+    start_time = datetime.now()
+    result = get_similar_products_file(project_id, location, product_set_id, product_category,
+                                       '../color/hollister_black_shirt_1.jpg', 'color = black', None)
+    end_time = datetime.now()
+    diff_time = end_time - start_time
+    print('Process Time: {}'.format(diff_time))
+    print('Search results for image: {}, filter: {}'.format('hollister_black_shirt_1.jpg', 'color = black'))
+    print_results(result)
+
+
+def case_3(project_id, location, product_set_id, product_category):
+    print('---------------------Test Case 3')
+    start_time = datetime.now()
+    result = get_similar_products_file(project_id, location, product_set_id, product_category,
+                                       '../color/hollister_black_shirt_1.jpg', 'color = white', None)
+    end_time = datetime.now()
+    diff_time = end_time - start_time
+    print('Process Time: {}'.format(diff_time))
+    print('Search results for image: {}, filter: {}'.format('hollister_black_shirt_1.jpg', 'color = white'))
+    print_results(result)
+
+
 if __name__ == '__main__':
     project_id = "beni-ai-engine"
     location = "us-east1"
     product_set_id = 'BENI_TEST_CASES'
     product_category = 'apparel'
 
-    print('---------------------Test Case 1')
-
-    case_1 = get_similar_products_file(project_id, location, product_set_id, product_category,
-                                       'hollister_black_shirt_1.jpg', None, None)
-    print_results(case_1, 'hollister_black_shirt_1.jpg')
-
-    print('---------------------Test Case 2')
-
-    case_2 = get_similar_products_file(project_id, location, product_set_id, product_category,
-                                       'hollister_black_shirt_1.jpg', 'color = black', None)
-    print_results(case_2, 'hollister_black_shirt_1.jpg')
-
-    print('---------------------Test Case 3')
-
-    case_3 = get_similar_products_file(project_id, location, product_set_id, product_category,
-                                       'hollister_black_shirt_1.jpg', 'color = white', None)
-    print_results(case_3, 'hollister_black_shirt_1.jpg')
+    case_1(project_id, location, product_set_id, product_category)
+    case_2(project_id, location, product_set_id, product_category)
+    case_3(project_id, location, product_set_id, product_category)
