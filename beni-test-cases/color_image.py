@@ -90,11 +90,11 @@ def get_color_image(img_url):
 
 
 if __name__ == '__main__':
-    #get_color_image('hollister_black_shirt_1.jpg')
-    #get_color_image('hollister_black_shirt_2.jpg')
-    #get_color_image('hollister_black_shirt_3.jpg')
-    #get_color_image('hollister_red_shirt.jpg')
-    #get_color_image('hollister_white_shirt.jpg')
+    get_color_image('hollister_black_shirt_1.jpg')
+    get_color_image('hollister_black_shirt_2.jpg')
+    get_color_image('hollister_black_shirt_3.jpg')
+    get_color_image('hollister_red_shirt.jpg')
+    get_color_image('hollister_white_shirt.jpg')
     get_color_image('zara_orange_shirt.jpg')
     get_color_image('zara_yellow_shirt.jpg')
     get_color_image('zara_blue_shirt.jpg')
